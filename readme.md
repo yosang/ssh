@@ -17,6 +17,10 @@ The command `ssh-keygen` generates a pair of keys, the private key (has no exten
     - when setting key size, consider: bigger number, harder to break, but requires more resources, `4096` is considered the strongest size. while `2048` is secure enough with faster performance.
     - the performance is noticed at: generation, signing, verification, on slow servers, each handshake can take some time if using `rsa` with a `4096` bit size.
     - sticking to `ed25519` is often good enough
+- use the `-t` flag if authenticating to a server and want some sort of interactivity, it allocates a `TTY`, good for running commands on the server
+    - `ssh -t root@ip 'systemctl restart nginx'`
+- use the `-T` flag if interactivty is not needed, useful for running a script after sshing.
+    - `ssh -T root@ip 'cd app && git pull && ./deploy.sh'`  
 
 By default, keys are stored in `~/.ssh`, if this directory doesnt exist create it and give it full user permissions with `chmod 700 ~/.ssh`. Or just use `ssh-keygen` it will create the folder for you. 
 
