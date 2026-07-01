@@ -27,6 +27,11 @@ By default, keys are stored in `~/.ssh`, if this directory doesnt exist create i
 When generating a key we will be prompted for location and passphrase.
 - If you enter a passphrase you will be prompted for it everytime the key is used.
 
+## ssh config
+located at `~/.ssh/config`, ssh wil parse this file when making a connection.
+
+if the server we are trying to connect to is defined in this file, it will use that configuration.
+
 ## authentication with ssh
 To authenticate the format is `ssh -i ~/.ssh/privatekey user@server`.
 
