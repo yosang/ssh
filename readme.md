@@ -35,3 +35,21 @@ Host mycustomserver
 ``` 
 
 to authenticate use `ssh mycustomerserver` 
+
+# Github SSH
+The concept above is fine for logging into a server, however with Github we are identifying ourselves each time we do a git operation (push, pull etc), which is not the same as a login session.
+
+Once a key pair is generated, we can place the public key in [github settings > ssh and gpg keys](https://github.com/settings/keys).
+
+We can then configure `config` to use a private key for github
+```
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+```
+
+Now every operation to a host like `git@github.com:repo.git` will recognize the User `git` and Host `github.com` and try to authenticate using private key accordingly. 
+- The `repo.git` checks wether we have access to this repo or not, which we should if the private key is in the user settings.
+
+We can run a verbose command like `ssh -v git@github.com` to see in the logs that it finds the corrent config.
