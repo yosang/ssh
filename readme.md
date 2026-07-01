@@ -5,7 +5,7 @@ Use SSH to authenticate
 ## SSH client
 To use SSH we need a client like [OpenSSH](https://www.openssh.org/) (included in Unix systems).
 - To check if OpenSSH is in your system type `ssh -V`
-- On windows we need something like `PuTTY` or `Gitbash` .
+- On windows also includes openssh, usually im using gitbash so its available .
 
 ## Generating a key
 The command `ssh-keygen` generates a pair of keys, the private key (has no extension) and the public key (`.pub`).
